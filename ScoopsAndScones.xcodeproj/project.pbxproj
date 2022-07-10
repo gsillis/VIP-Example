@@ -167,7 +167,6 @@
 		C59F82C0287B8E3000B792D5 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				C59F82BC287B848E00B792D5 /* CreateIceCreamView.swift */,
 				C59F82BA287B81D000B792D5 /* CreateIceCreamImageView.swift */,
 			);
 			path = UIComponents;
@@ -187,6 +186,7 @@
 				C59F82C1287B8E3D00B792D5 /* Extensions */,
 				C59F82C0287B8E3000B792D5 /* UIComponents */,
 				C59F82C9287B95C200B792D5 /* CreateIceCreamModel.swift */,
+				C59F82BC287B848E00B792D5 /* CreateIceCreamView.swift */,
 				C59F82CB287B975B00B792D5 /* CreateIceCreamInteractor.swift */,
 				C59F82CD287B990000B792D5 /* CreateIceCreamPresenter.swift */,
 				C59F82CF287B9C9300B792D5 /* CreateIceCreamConfigurator.swift */,

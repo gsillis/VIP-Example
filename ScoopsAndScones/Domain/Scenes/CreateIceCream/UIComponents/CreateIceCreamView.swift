@@ -7,12 +7,17 @@
 
 import SwiftUI
 
+protocol CreateIceCreamDisplayLogic {
+    func displayIceCream(viewModel: CreateIceCream.LoadIceCream.ViewModel)
+}
+
 struct CreateIceCreamView: View {
     @ObservedObject var iceCream = IceCreamDataStore()
     @State private var selectedCone = ""
     @State private var selectedFlavor = ""
     @State private var selectedTopping = ""
     @State private var showDoneAlert = false
+    var interactor: CreateIceCreamBussinesLogic?
     
     var body: some View {
         NavigationView {
@@ -70,6 +75,9 @@ struct CreateIceCreamView: View {
                 }
             }
             .navigationTitle("Scoops&Scones")
+            .onAppear() {
+                fetchIceCream()
+            }
         }
         .navigationViewStyle(.stack)
     }
@@ -82,10 +90,23 @@ struct CreateIceCreamView_Previews: PreviewProvider {
 }
 
 private extension CreateIceCreamView {
+    func fetchIceCream() {
+      let request = CreateIceCream.LoadIceCream.Request()
+      interactor?.loadIceCream(request: request)
+    }
+    
     func showIceCreamImage() -> Bool {
         if selectedCone.isEmpty || selectedFlavor.isEmpty || selectedTopping.isEmpty {
             return true
         }
         return false
+    }
+}
+
+extension CreateIceCreamView: CreateIceCreamDisplayLogic {
+    func displayIceCream(viewModel: CreateIceCream.LoadIceCream.ViewModel) {
+        iceCream.displayedCones = viewModel.cones
+        iceCream.displayedFlavors = viewModel.flavors
+        iceCream.displayedToppings = viewModel.toppings
     }
 }

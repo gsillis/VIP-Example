@@ -12,11 +12,17 @@ final class CreateIceCreamViewTests: XCTestCase {
     private var interactorSpy = InteractorSpy()
     private lazy var sut = makeSut(interactorSpy: interactorSpy)
     
-    func testDisplayIceCream_shouldCallLoadIceCream() {
+    func testFetchIceCream_shouldCallLoadIceCream() {
         sut.fetchIceCream()
         
         XCTAssertTrue(interactorSpy.loadIceCreamCalled)
         XCTAssertEqual(interactorSpy.loadIceCreamCount, 1)
+    }
+    
+    func testFetchIceCream_shouldCallLoadIceCream_withCorrectRequest() {
+        let request = CreateIceCream.LoadIceCream.Request()
+        sut.fetchIceCream()
+        XCTAssertEqual(interactorSpy.request, request)
     }
 }
 

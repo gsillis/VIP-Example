@@ -9,7 +9,7 @@ import Foundation
 
 enum CreateIceCream {
   enum LoadIceCream {
-    struct Request {}
+      struct Request: Equatable {}
 
     struct Response {
       var iceCreamData: IceCream

@@ -13,6 +13,7 @@ final class InteractorSpy: CreateIceCreamBussinesLogic {
     private(set) var loadIceCreamCalled = false
     
     func loadIceCream(request:  CreateIceCream.LoadIceCream.Request) {
+        self.request = request
         loadIceCreamCount += 1
         loadIceCreamCalled = true
     }

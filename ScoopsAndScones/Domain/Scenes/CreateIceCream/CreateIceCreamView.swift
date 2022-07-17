@@ -89,7 +89,7 @@ struct CreateIceCreamView_Previews: PreviewProvider {
     }
 }
 
-private extension CreateIceCreamView {
+extension CreateIceCreamView {
     func fetchIceCream() {
       let request = CreateIceCream.LoadIceCream.Request()
       interactor?.loadIceCream(request: request)

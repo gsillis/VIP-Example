@@ -14,7 +14,6 @@ final class CreateIceCreamViewTests: XCTestCase {
     
     func testFetchIceCream_shouldCallLoadIceCream() {
         sut.fetchIceCream()
-        
         XCTAssertTrue(interactorSpy.loadIceCreamCalled)
         XCTAssertEqual(interactorSpy.loadIceCreamCount, 1)
     }
